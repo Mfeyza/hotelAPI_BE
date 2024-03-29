@@ -12,8 +12,8 @@ const packageJson = require('./package.json')
 const document = {
 	info: {
 		version: packageJson.version,
-		title: "PizzaAPI",
-		description: packageJson.description,
+		title: "Hotel API ",
+		description: "Hotel Api rojesine hoşgeldin. Bu api Feyza,Ensar ve Arife aittir :) ",
 		termsOfService: "http://www.clarusway.com/#",
 		contact: { name: packageJson.author, email: "qadir@clarusway.com" },
 		license: { name: packageJson.license, },
