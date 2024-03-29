@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "PizzaAPI",
-    "description": "### ERD:",
+    "title": "Hotel API ",
+    "description": "Hotel Api rojesine hoşgeldin. Bu api Feyza,Ensar ve Arife aittir :) ",
     "termsOfService": "http://www.clarusway.com/#",
     "contact": {
       "name": "",
