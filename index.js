@@ -55,7 +55,7 @@ app.use('/', require('./src/routes/index'))
 app.all('/', (req, res) => {
     res.send({
         error: false,
-        message: 'Welcome to PIZZA API',
+        message: 'Welcome to HOTEL API',
         docs: {
             swagger: "https://hotelapi-be.onrender.com/documents/swagger/",
             redoc: "https://hotelapi-be.onrender.com/documents/redoc",
