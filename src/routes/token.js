@@ -1,24 +1,19 @@
-"use strict"
+"use strict";
 
-const router = require('express').Router()
-/* ------------------------------------------------------- */
-// routes/token:
+const router = require("express").Router();
 
-const token = require('../controllers/token')
+const token = require("../controllers/token");
 
-const { isAdmin } = require('../middlewares/permissions')
+const { isAdmin } = require("../middlewares/permissions");
 
-// URL: /tokens
-router.use(isAdmin)
-router.route('/')
-    .get(token.list)
-    .post(token.create)
+router.use(isAdmin);
+router.route("/").get(token.list).post(token.create);
 
-router.route('/:id')
-    .get(token.read)
-    .put(token.update)
-    .patch(token.update)
-    .delete(token.delete)
+router
+  .route("/:id")
+  .get(token.read)
+  .put(token.update)
+  .patch(token.update)
+  .delete(token.delete);
 
-/* ------------------------------------------------------- */
-module.exports = router
+module.exports = router;

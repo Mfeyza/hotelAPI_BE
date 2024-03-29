@@ -74,6 +74,16 @@
         }
       }
     },
+    "/auth/refresh": {
+      "post": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/auth/logout": {
       "get": {
         "tags": [
@@ -310,12 +320,12 @@
         }
       }
     },
-    "/orders/": {
+    "/reservations/": {
       "get": {
         "tags": [
-          "Orders"
+          "Reservations"
         ],
-        "summary": "List Orders",
+        "summary": "List Reservations",
         "description": "  You can send query with endpoint for filter[], search[], sort[], page and limit.  <ul> Examples:   <li>URL/?<b>filter[field1]=value1&filter[field2]=value2</b></li>   <li>URL/?<b>search[field1]=value1&search[field2]=value2</b></li>   <li>URL/?<b>sort[field1]=1&sort[field2]=-1</b></li>   <li>URL/?<b>page=2&limit=1</b></li>  </ul>  ",
         "responses": {
           "200": {
@@ -325,10 +335,27 @@
       },
       "post": {
         "tags": [
-          "Orders"
+          "Reservations"
         ],
-        "summary": "Create Order",
+        "summary": "Create Reservation",
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "roomId": {
+                  "example": "any"
+                },
+                "price": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -336,12 +363,12 @@
         }
       }
     },
-    "/orders/{id}": {
+    "/reservations/{id}": {
       "get": {
         "tags": [
-          "Orders"
+          "Reservations"
         ],
-        "summary": "Get Single Order",
+        "summary": "Get Single Reservation",
         "description": "",
         "parameters": [
           {
@@ -359,9 +386,9 @@
       },
       "put": {
         "tags": [
-          "Orders"
+          "Reservations"
         ],
-        "summary": "Update Order",
+        "summary": "Update Reservation",
         "description": "",
         "parameters": [
           {
@@ -379,9 +406,9 @@
       },
       "delete": {
         "tags": [
-          "Orders"
+          "Reservations"
         ],
-        "summary": "Delete Order",
+        "summary": "Delete Reservation",
         "description": "",
         "parameters": [
           {
@@ -402,9 +429,9 @@
       },
       "patch": {
         "tags": [
-          "Orders"
+          "Reservations"
         ],
-        "summary": "Update Order",
+        "summary": "Update Reservation",
         "description": "",
         "parameters": [
           {
@@ -421,12 +448,12 @@
         }
       }
     },
-    "/pizzas/": {
+    "/rooms/": {
       "get": {
         "tags": [
-          "Pizzas"
+          "Rooms"
         ],
-        "summary": "List Pizzas",
+        "summary": "List Rooms",
         "description": "  You can send query with endpoint for filter[], search[], sort[], page and limit.  <ul> Examples:   <li>URL/?<b>filter[field1]=value1&filter[field2]=value2</b></li>   <li>URL/?<b>search[field1]=value1&search[field2]=value2</b></li>   <li>URL/?<b>sort[field1]=1&sort[field2]=-1</b></li>   <li>URL/?<b>page=2&limit=1</b></li>  </ul>  ",
         "responses": {
           "200": {
@@ -436,9 +463,9 @@
       },
       "post": {
         "tags": [
-          "Pizzas"
+          "Rooms"
         ],
-        "summary": "Create Pizza",
+        "summary": "Create Room",
         "description": "",
         "responses": {
           "201": {
@@ -447,12 +474,12 @@
         }
       }
     },
-    "/pizzas/{id}": {
+    "/rooms/{id}": {
       "get": {
         "tags": [
-          "Pizzas"
+          "Rooms"
         ],
-        "summary": "Get Single Pizza",
+        "summary": "Get Single Room",
         "description": "",
         "parameters": [
           {
@@ -470,9 +497,9 @@
       },
       "put": {
         "tags": [
-          "Pizzas"
+          "Rooms"
         ],
-        "summary": "Update Pizza",
+        "summary": "Update Room",
         "description": "",
         "parameters": [
           {
@@ -480,6 +507,18 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "images": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -490,9 +529,9 @@
       },
       "delete": {
         "tags": [
-          "Pizzas"
+          "Rooms"
         ],
-        "summary": "Delete Pizza",
+        "summary": "Delete Room",
         "description": "",
         "parameters": [
           {
@@ -513,9 +552,9 @@
       },
       "patch": {
         "tags": [
-          "Pizzas"
+          "Rooms"
         ],
-        "summary": "Update Pizza",
+        "summary": "Update Room",
         "description": "",
         "parameters": [
           {
@@ -523,117 +562,18 @@
             "in": "path",
             "required": true,
             "type": "string"
-          }
-        ],
-        "responses": {
-          "202": {
-            "description": "Accepted"
-          }
-        }
-      }
-    },
-    "/toppings/": {
-      "get": {
-        "tags": [
-          "Toppings"
-        ],
-        "summary": "List Toppings",
-        "description": "  You can send query with endpoint for filter[], search[], sort[], page and limit.  <ul> Examples:   <li>URL/?<b>filter[field1]=value1&filter[field2]=value2</b></li>   <li>URL/?<b>search[field1]=value1&search[field2]=value2</b></li>   <li>URL/?<b>sort[field1]=1&sort[field2]=-1</b></li>   <li>URL/?<b>page=2&limit=1</b></li>  </ul>  ",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Toppings"
-        ],
-        "summary": "Create Topping",
-        "description": "",
-        "responses": {
-          "201": {
-            "description": "Created"
-          }
-        }
-      }
-    },
-    "/toppings/{id}": {
-      "get": {
-        "tags": [
-          "Toppings"
-        ],
-        "summary": "Get Single Topping",
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Toppings"
-        ],
-        "summary": "Update Topping",
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "202": {
-            "description": "Accepted"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Toppings"
-        ],
-        "summary": "Delete Topping",
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
           },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "Toppings"
-        ],
-        "summary": "Update Topping",
-        "description": "",
-        "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "images": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {

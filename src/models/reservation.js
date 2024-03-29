@@ -19,7 +19,7 @@ const ReservationSchema = new mongoose.Schema({
     arrivalDate: {
         type: Date,
         required: true,
-        default: Date.now // Bu satırda Date.now() olarak değiştirilebilir
+        default: Date.now 
      },
 
    departureDate: {
@@ -27,7 +27,7 @@ const ReservationSchema = new mongoose.Schema({
     required: true,
     validate: {
         validator: function(date) {
-            // departureDate'in arrivalDate'den sonra olduğunu kontrol et
+    
             return date > this.arrivalDate;
         },
         message: 'departureDate must be later than arrivalDate'
@@ -39,7 +39,7 @@ const ReservationSchema = new mongoose.Schema({
         default: 1
     },
 
-    // night alanını hesaplamak için get metodu kullanılmalıdır
+   
     night: {
         type: Number,
         get: function() {

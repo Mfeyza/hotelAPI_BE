@@ -67,14 +67,22 @@ module.exports = {
             #swagger.tags = ["Rooms"]
             #swagger.summary = "Update Room"
         */
-
-        const data = await Room.updateOne({ _id: req.params.id }, req.body, { runValidators: true })
-
-        res.status(202).send({
-            error: false,
-            data,
-            new: await Room.findOne({ _id: req.params.id })
-        })
+            const room = await Room.findOne({ _id: req.params.id }, { _id: 0, images: 1 })
+            // pizza.images
+            
+            for (let file of req.files) {
+                room.images.push('/uploads/' + file.filename)
+            }
+            
+            req.body.images = room.images
+    
+            const data = await Room.updateOne({ _id: req.params.id }, req.body, { runValidators: true })
+    
+            res.status(202).send({
+                error: false,
+                data,
+                new: await Room.findOne({ _id: req.params.id })
+            })
     },
 
     delete: async (req, res) => {
