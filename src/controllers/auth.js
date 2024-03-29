@@ -103,6 +103,11 @@ module.exports = {
 
     },
 refresh:async (req,res)=>{
+         /*
+            #swagger.tags = ["Authentication"]
+            #swagger.summary = "JWT: Refresh"
+            #swagger.description = 'Refresh token.'
+        */
     const refreshToken = req.body?.bearer?.refresh 
 
     if(refreshToken){
