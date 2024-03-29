@@ -57,9 +57,9 @@ app.all('/', (req, res) => {
         error: false,
         message: 'Welcome to PIZZA API',
         docs: {
-            swagger: "/documents/swagger",
-            redoc: "/documents/redoc",
-            json: "/documents/json",
+            swagger: "https://hotelapi-be.onrender.com/documents/swagger/",
+            redoc: "https://hotelapi-be.onrender.com/documents/redoc",
+            json: "https://hotelapi-be.onrender.com/documents/json",
         },
         user: req.user,
     })
