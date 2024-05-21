@@ -1,8 +1,4 @@
 "use strict"
-/* -------------------------------------------------------
-    NODEJS EXPRESS | CLARUSWAY FullStack Team
-------------------------------------------------------- */
-
 
 const Room = require('../models/room')
 

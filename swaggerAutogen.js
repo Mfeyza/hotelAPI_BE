@@ -1,7 +1,5 @@
 "use strict"
-/* -------------------------------------------------------
-	EXPRESS - Personnel API
-------------------------------------------------------- */
+
 require('dotenv').config()
 const HOST = process.env?.HOST || '127.0.0.1'
 const PORT = process.env?.PORT || 8000
@@ -13,9 +11,9 @@ const document = {
 	info: {
 		version: packageJson.version,
 		title: "Hotel API ",
-		description: "Hotel Api rojesine hoşgeldin. Bu api Feyza,Ensar ve Arife aittir :) ",
-		termsOfService: "http://www.clarusway.com/#",
-		contact: { name: packageJson.author, email: "qadir@clarusway.com" },
+		description: "Hotel Api  ",
+		termsOfService: "http://mfy.com/#",
+		contact: { name: packageJson.author, email: "mfy.com" },
 		license: { name: packageJson.license, },
 	},
 	host: `${HOST}:${PORT}`,
